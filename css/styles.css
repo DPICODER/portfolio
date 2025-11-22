@@ -1,0 +1,360 @@
+:root {
+    --bg: #000000;
+    --card-bg: #0a0a0a;
+    --border: #222222;
+    --text-main: #ffffff;
+    --text-sub: #666666;
+    --accent: #ffffff;
+    /* Monochrome accent */
+    --font-main: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --radius: 12px;
+    /* Sharper corners */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+}
+
+/* Minimal Grid Layout */
+.minimal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;
+    /* 3 main rows */
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Card Base */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: #444;
+}
+
+h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-sub);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* BLOCK 1: IDENTITY */
+.identity-block {
+    grid-column: span 2;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #4ade80;
+    /* Subtle green for status only */
+    margin-bottom: 1.5rem;
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 8px currentColor;
+}
+
+.name {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.role {
+    font-size: 1.2rem;
+    color: var(--text-sub);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.bio {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+    max-width: 90%;
+    margin-bottom: 2rem;
+}
+
+.meta-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 2rem;
+    color: var(--text-sub);
+    font-size: 0.9rem;
+}
+
+.meta-item i {
+    width: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.social-links a:hover {
+    border-bottom-color: var(--text-main);
+}
+
+.stats-row {
+    display: flex;
+    gap: 3rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    margin-top: auto;
+}
+
+.stat-num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-sub);
+}
+
+/* BLOCK 2: WORK */
+.work-block {
+    grid-column: span 2;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+}
+
+.company-tag {
+    background: #1a1a1a;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--text-main);
+}
+
+.terminal-view {
+    background: #050505;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: var(--font-mono);
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.terminal-top {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-sub);
+    font-size: 0.75rem;
+}
+
+.log-line {
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+
+.time {
+    color: var(--text-sub);
+    margin-right: 8px;
+}
+
+.cmd {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.res {
+    color: #999;
+    margin-top: 4px;
+    padding-left: 1rem;
+    border-left: 1px solid #333;
+}
+
+.internship-sub {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    text-align: right;
+}
+
+/* BLOCK 3: TECH */
+.tech-block {
+    grid-column: span 2;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.marquee-wrapper {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-inner {
+    display: flex;
+    gap: 2rem;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ccc;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* BLOCK 4: PROJECTS */
+.projects-block {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.project-list-clean {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #111;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.project-row:hover {
+    background: #161616;
+}
+
+.proj-info h4 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.proj-info p {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+}
+
+.proj-tag {
+    font-size: 0.75rem;
+    border: 1px solid var(--border);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--text-sub);
+}
+
+/* BLOCK 5: CREDENTIALS */
+.credentials-block {
+    grid-column: span 4;
+    grid-row: span 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.cred-col h3 {
+    margin-bottom: 1rem;
+}
+
+.cred-item {
+    margin-bottom: 1rem;
+}
+
+.cred-item h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+}
+
+.meta {
+    font-size: 0.8rem;
+    color: var(--text-sub);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .minimal-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .identity-block,
+    .work-block,
+    .tech-block,
+    .projects-block,
+    .credentials-block {
+        grid-column: span 1;
+        grid-row: auto;
+    }
+
+    .credentials-block {
+        grid-template-columns: 1fr;
+    }
+}
